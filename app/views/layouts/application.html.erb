@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= t 'site.title' %></title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header class="main-header fixed">
+  <div class="row">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header pull-right">
+          <a class="navbar-brand" href="">
+            <%= image_tag 'quran-online-logo.png', height: '50px' %>
+          </a>
+        </div>
+        <!--<ul class="nav navbar-nav" id="nav">
+          <li>
+            <a href="#view_translation" id="show_translation"><i class="fa fa-columns"></i></a>
+          </li>
+        </ul>-->
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="main-container container" data-columns="1">
+  <% if notice %>
+    <div class="alert alert-success"><%= notice %></div>
+  <% end %>
+  <% if alert %>
+    <div class="alert alert-danger"><%= alert %></div>
+  <% end %>
+  <%= yield %>
+</div>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</body>
+</html>

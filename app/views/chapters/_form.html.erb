@@ -1,0 +1,16 @@
+<%= simple_form_for(@chapter) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :permalink %>
+    <%= f.input :type, collection: %w(meccan medinan) %>
+    <%= f.input :number, collection: (1..114) %>
+    <%= f.input :verse_count, as: :integer %>
+    <%= f.input :chronological_order, collection: (1..114) %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

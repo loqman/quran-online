@@ -1,0 +1,31 @@
+<h2><%= t '.title' %></h2>
+<div class="col-lg-8 col-md-10 col-sm-12 col-xs-12 pull-right">
+  <table class="table table-bordered table-striped table-hover table-responsive">
+    <thead>
+    <tr>
+      <th><%= Author.human_attribute_name :name %></th>
+      <th><%= Author.human_attribute_name :permalink %></th>
+      <th style="width: 293px;"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= author.name %></td>
+        <td><%= author.permalink %></td>
+        <td>
+          <%= link_to t('links.show'), author, class: 'btn btn-sm btn-default' %>
+          <%= link_to t('links.load_translation'), load_translation_author_path(author), class: 'btn btn-sm btn-success' %>
+          <%= link_to t('links.edit'), edit_author_path(author), class: 'btn btn-sm btn-primary' %>
+          <%= link_to t('links.destroy'), author, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to t('.new_author'), new_author_path %>
+</div>

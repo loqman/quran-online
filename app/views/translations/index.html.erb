@@ -1,0 +1,27 @@
+<h2><%= t '.title' %></h2>
+
+<table class="table table-bordered table-striped table-hover table-responsive">
+  <thead>
+    <tr>
+      <th><%= Translation.human_attribute_name :content %></th>
+      <th><%= Translation.human_attribute_name :chapter_number %></th>
+      <th><%= Translation.human_attribute_name :verse_number %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @translations.each do |translation| %>
+      <tr>
+        <td><%= translation.content %></td>
+        <td><%= translation.chapter_number.to_farsi %></td>
+        <td><%= translation.verse_number.to_farsi %></td>
+        <td><%= link_to 'Show', [@author, translation] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Translation', new_author_translation_path %>

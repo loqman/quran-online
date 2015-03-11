@@ -1,0 +1,85 @@
+fa:
+  site:
+    title: 'قرآن آنلاین'
+  nav:
+    home_page: "صفحه اصلی"
+    login: "ورود"
+  chapter_type:
+    meccan: "مکه"
+    medinan: "مدینه"
+  chapters:
+    index:
+      title: "سوره‌ها"
+      number: "ردیف"
+      name: "نام سوره"
+      new_chapter: "سوره جدید"
+    new:
+      title: "سوره جدید"
+    show:
+      chapter: "سُورةُ"
+      verse_count: "ترتیبها"
+      chapter_number: "آیاتها"
+      show_translation: "نمایش ترجمه"
+      autoplay: "پخش خودکار"
+  links:
+    show: "نمایش"
+    edit: "ویرایش"
+    destroy: "حذف"
+    back: "بازگشت"
+    load_translation: "بارگزاری ترجمه‌ها"
+  mongoid:
+    actions:
+      create: "ایجاد"
+    models:
+      chapter: "سوره"
+      verse: "آیه"
+      part: "جزء"
+      author: "نویسنده"
+      translation: "ترجمه"
+      interpretation: "تفسیر"
+    attributes:
+      chapter:
+        name: "نام سوره"
+        type: "محل نزول"
+        number: "ردیف"
+        verse_count: "شمار آیه‌ها"
+        chronological_order: "ترتیب نزول"
+        permalink: "لینک ثابت"
+      verse:
+        content: "متن آیه"
+        number: "شماره آیه"
+        part_number: "جزء"
+        sector_number: "حزب"
+        ut_page_number: "شماره صفحه عثمان طه"
+      part:
+        number: "شماره جزء"
+        chapter_number_start: "شماره سوره آغازین"
+        chapter_number_end: "شماره سوره پایانی"
+        verse_number_start: "شماره آیه آغازین"
+        verse_number_end: "شماره آیه پایانی"
+      author:
+        name: "نام نویسنده"
+        permalink: "لینک ثابت"
+        direction: "جهت متن"
+      translation:
+        content: "ترجمه آیه"
+        chapter_number: "شماره سوره"
+        verse_number: "شماره آیه"
+      interpretation:
+        name: "نام تفسیر"
+  parts:
+    index:
+      new_part: "جزء جدید"
+      title: "اجزأ قرآن"
+    new:
+      title: "جزٔ جدید"
+  authors:
+    index:
+      title: "لیست مترجمین و مفسرین"
+      new_author: "نویسنده جدید"
+    load_translation:
+      title: "بارگزاری ترجمه‌های"
+      message: "تعداد ترجمه‌های بارگزاری شده:"
+  translations:
+    index:
+      title: "لیست ترجمه‌ها"

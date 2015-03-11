@@ -1,0 +1,17 @@
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+  <%= simple_form_for(@part) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :number %>
+      <%= f.input :chapter_number_start, as: :integer %>
+      <%= f.input :verse_number_start, as: :integer %>
+      <%= f.input :chapter_number_end, as: :integer %>
+      <%= f.input :verse_number_end, as: :integer %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>

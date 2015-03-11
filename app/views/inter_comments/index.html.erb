@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Inter Comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inter_comments.each do |inter_comment| %>
+      <tr>
+        <td><%= inter_comment.content %></td>
+        <td><%= link_to 'Show', inter_comment %></td>
+        <td><%= link_to 'Edit', edit_inter_comment_path(inter_comment) %></td>
+        <td><%= link_to 'Destroy', inter_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inter comment', new_inter_comment_path %>

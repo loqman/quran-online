@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @part.number %>
+</p>
+
+<p>
+  <strong>Chapter number start:</strong>
+  <%= @part.chapter_number_start %>
+</p>
+
+<p>
+  <strong>Chapter number end:</strong>
+  <%= @part.chapter_number_end %>
+</p>
+
+<p>
+  <strong>Verse number start:</strong>
+  <%= @part.verse_number_start %>
+</p>
+
+<p>
+  <strong>Verse number end:</strong>
+  <%= @part.verse_number_end %>
+</p>
+
+<%= link_to 'Edit', edit_part_path(@part) %> |
+<%= link_to 'Back', parts_path %>

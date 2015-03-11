@@ -1,0 +1,14 @@
+<h2 class="arabi-bold text-center">
+  <%= @verse.content %>
+</h2>
+<hr/>
+<h3 class="text-center"><%= @translation.content %></h3>
+<hr/>
+<%= link_to t('.show_translation'), verse_translation_path(@chapter.number, @verse.number, @translator.permalink) %>
+<p>
+  <strong>Number:</strong>
+  <%= @verse.number %>
+</p>
+
+
+

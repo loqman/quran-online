@@ -1,0 +1,39 @@
+<h2><%= t '.title' %>
+  <%= link_to t('.new_chapter'), new_chapter_path, class: 'btn btn-info pull-left' %>
+</h2>
+<hr/>
+<div class="row">
+  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+    <table class="table table-hover table-striped table-bordered table-responsive">
+      <thead>
+      <tr>
+        <th style="width: 25px;"><%= Chapter.human_attribute_name :number %></th>
+        <th><%= Chapter.human_attribute_name :name %></th>
+        <th><%= Chapter.human_attribute_name :verse_count %></th>
+        <th><%= Chapter.human_attribute_name :type %></th>
+        <th style="width: 200px;"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @chapters.each do |chapter| %>
+        <tr>
+          <td style="text-align: center; vertical-align: middle;"><%= chapter.number.to_farsi %></td>
+          <td class="arabi-bold" style="font-size: 18px; vertical-align: middle;"><%= chapter.name %></td>
+          <td style="text-align: center; vertical-align: middle;"><%= chapter.verse_count.to_farsi %></td>
+          <td><%= t "chapter_type.#{chapter.type}" %></td>
+          <td>
+            <div class="btn-toolbar">
+              <%= link_to t('links.show'), chapter, class: 'btn btn-sm btn-default' %>
+              <%= link_to t('links.edit'), edit_chapter_path(chapter), class: 'btn btn-sm btn-primary' %>
+              <%= link_to t('links.destroy'), chapter, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger' %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <hr/>
+    <%= link_to t('.new_chapter'), new_chapter_path, class: 'btn btn-info' %>
+  </div>
+</div>

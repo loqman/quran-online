@@ -1,0 +1,15 @@
+<%= simple_form_for([@chapter, @verse]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :content %>
+    <%= f.input :number %>
+    <%= f.input :part_number %>
+    <%= f.input :sector_number %>
+    <%= f.input :ut_page_number %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

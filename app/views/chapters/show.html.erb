@@ -1,0 +1,59 @@
+<div class="float-side">
+  <a class="translation-link" id="show_translation"><%= t '.show_translation' %></a>
+
+  <form id="verse_change">
+    <input type="text" class="verse-number" id="verse_number">
+  </form>
+  <a class="autoplay-link" id="autoplay"><%= t '.autoplay' %></a>
+
+  <div class="btn-toolbar ltr">
+    <a class="play-verse"><i class="fa fa-play"></i></a>
+    <a class="pause-verse active"><i class="fa fa-pause"></i></a>
+  </div>
+</div>
+<div class="chapter-header col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 hidden-xs">
+  <h2><%= t '.chapter' %> <%= @chapter.name %></h2>
+  <span class="verse-count">
+    <%= t '.verse_count' %>
+    <br/>
+    <%= @chapter.number.to_farsi %>
+  </span>
+  <span class="number">
+    <%= t '.chapter_number' %>
+    <br/>
+    <%= @chapter.verse_count.to_farsi %>
+  </span>
+</div>
+<div class="row">
+  <div class="chapter col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12" data-verse="<%= @chapter.verse_count %>">
+    <% @verses.each do |verse| %>
+      <a data-chapter="<%= @chapter.number %>" data-verse="<%= verse.number %>">
+      <span class="verse">
+        <%= process_verse verse.content %>
+      </span>
+        &nbsp;<span class="verse-number"><%= verse.number.to_farsi %></span>&nbsp;
+      <span class="translation hidden">
+        <%= @translations[verse.number - 1].content.to_farsi %>
+      </span>
+      </a>
+      <textarea class="note hidden"></textarea>
+    <% end %>
+  </div>
+</div>
+<div class="recites">
+  <ul class="hidden">
+    <li data-audio="<%= construct_audhubillah_url 'alafasy', '128' %>" data-chapter="<%= @chapter.number %>" data-verse="1"></li>
+    <li data-audio="<%= construct_besmeallah_url 'alafasy', '128' %>" data-chapter="<%= @chapter.number %>" data-verse="1"></li>
+    <% @verses.each do |verse| %>
+      <li data-audio="<%= construct_audio_url 'alafasy', '128', @chapter.number, verse.number %>"
+          data-chapter="<%= @chapter.number %>" data-verse="<%= verse.number %>"></li>
+      <li data-audio="<%= construct_audio_url 'makarem', '64', @chapter.number, verse.number %>"
+          data-chapter="<%= @chapter.number %>" data-verse="<%= verse.number %>" data-type="translation"></li>
+    <% end %>
+  </ul>
+
+  <audio></audio>
+</div>
+<hr/>
+<%= link_to t('links.edit'), edit_chapter_path(@chapter) %> |
+<%= link_to t('links.back'), chapters_path %>

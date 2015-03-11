@@ -1,0 +1,33 @@
+<h2><%= t '.title' %></h2>
+<hr/>
+<table class="table table-responsive table-hover table-striped table-bordered">
+  <thead>
+    <tr>
+      <th><%= Part.human_attribute_name :number %></th>
+      <th><%= Part.human_attribute_name :chapter_number_start %></th>
+      <th><%= Part.human_attribute_name :verse_number_start %></th>
+      <th><%= Part.human_attribute_name :chapter_number_end %></th>
+      <th><%= Part.human_attribute_name :verse_number_end %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody style="text-align: center !important;">
+    <% @parts.each do |part| %>
+      <tr>
+        <td><%= part.number.to_farsi %></td>
+        <td><%= part.chapter_number_start.to_farsi %></td>
+        <td><%= part.verse_number_start.to_farsi %></td>
+        <td><%= part.chapter_number_end.to_farsi %></td>
+        <td><%= part.verse_number_end.to_farsi %></td>
+        <td><%= link_to t('links.show'), part %></td>
+        <td><%= link_to t('links.edit'), edit_part_path(part) %></td>
+        <td><%= link_to t('links.destroy'), part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<hr/>
+<%= link_to t('.new_part'), new_part_path, class: 'btn btn-info' %>
